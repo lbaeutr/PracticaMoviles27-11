@@ -16,6 +16,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
+
+// Composable principal para la segunda pantalla que recibe los datos a mostrar y un controlador de navegación
+
 @Composable
 fun SecondScreen(
     navController: NavController,
@@ -26,6 +29,8 @@ fun SecondScreen(
     email: String?,
     innerPadding: PaddingValues
 ) {
+    // Llama al cuerpo de la pantalla con los parámetros necesarios
+
     SecondBody(navController, nombre, apellidos, dni, edad, email, innerPadding)
 }
 
@@ -39,6 +44,8 @@ fun SecondBody(
     email: String?,
     innerPadding: PaddingValues
 ) {
+    // Contenedor principal, columna centrada
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -54,12 +61,16 @@ fun SecondBody(
             shape = RoundedCornerShape(16.dp),
             elevation = CardDefaults.cardElevation(defaultElevation = 8.dp) // Sombra
         ) {
+
+            // Columna con los datos del usuario
             Column(
                 modifier = Modifier
                     .padding(24.dp)
                     .fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
+
+
                 nombre?.let {
                     Text(
                         text = "¡Bienvenido, $it!",
@@ -115,6 +126,8 @@ fun SecondBody(
 
         Spacer(modifier = Modifier.height(24.dp))
 
+
+        // Botón de vuelta
         Button(
             onClick = {
                 navController.popBackStack()
